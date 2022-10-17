@@ -1,13 +1,22 @@
 # employee-tracker
 
-User Story
+## Table of Contents
+- [Description](#Description)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Application Screenshots](#application-screenshots)
+- [Application Links](#application-links)
+
+
+## Description
+#### User Story 
 
 AS A business owner
 I WANT to be able to view and manage the departments, roles, and employees in my company
 SO THAT I can organize and plan my business
 
 
-Acceptance Criteria
+#### Acceptance Criteria
 
 GIVEN a command-line application that accepts user input
 WHEN I start the application
@@ -27,6 +36,27 @@ THEN I am prompted to enter the employee’s first name, last name, role, and ma
 WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 
-Deployment Link: 
 
-Github Link:
+## Installation
+
+
+
+
+## Usage
+
+
+ 
+
+## Application Screenshots
+
+![]()
+![]()
+![]()
+![]()
+
+
+## Application Links
+
+[GitHub](https://github.com/VictorMendez96/employee-tracker)
+
+[Video Walk-through]()
