@@ -28,6 +28,7 @@ const db = mysql.createConnection(
 // init function to start program
 function init() {
 
+    menu();
 }
 
 // Function for menu
@@ -42,19 +43,19 @@ function menu() {
             }
         ])
         .then(function (response) {
-            if(response.menuOption == ""){
+            if(response.menuOption == 'View all departments'){
 
-            } else if (response.menuOption == ""){
+            } else if (response.menuOption == 'View all roles'){
 
-            } else if (response.menuOption == ""){
+            } else if (response.menuOption == 'View all employees'){
 
-            } else if (response.menuOption == ""){
+            } else if (response.menuOption == 'Add a department'){
 
-            } else if (response.menuOption == ""){
+            } else if (response.menuOption == 'Add a role'){
 
-            } else if (response.menuOption == ""){
+            } else if (response.menuOption == 'Add an employee'){
 
-            } else if (response.menuOption == ""){
+            } else if (response.menuOption == 'Update an employee role'){
 
             }
         });
