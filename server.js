@@ -1,7 +1,8 @@
 // Import required modules
 const express = require('express');
 const mysql = require('mysql2');
-const cTable = require('console.table')
+const cTable = require('console.table');
+const { default: Choices } = require('inquirer/lib/objects/choices');
 
 // Establish PORT to use for connection
 const PORT = process.env.PORT || 3001;
@@ -23,6 +24,24 @@ const db = mysql.createConnection(
     },
     console.log('Connected to employee_db database!')
 );
+
+// init function to start program
+function init() {
+
+}
+
+// Function for menu
+function menu() {
+    inquirer
+        .prompt([
+            {
+                name: 'menuOption',
+                type: 'list',
+                message: 'Choose an action: ',
+                choices: ['View all departments', '', '', '', '', '', '']
+            }
+        ])
+}
 
 // Functions for Menu Options
 // View all departments
@@ -68,3 +87,7 @@ const db = mysql.createConnection(
 // Delete employee
 
 // Total utilized budget per department
+
+
+// Call init function 
+init (); 
