@@ -63,33 +63,40 @@ function menu() {
 
 // Functions for Menu Options
 // View all departments
-
+function viewDepartments() {
     // Department names and ids
+    menu();
+};
 
 // View all roles
-
+function viewRoles() {
     // Title, role id, department role belongs to, and salary
+};
 
 // View all employees
-
+function viewEmployees() {
     // Employee id, first & last name, job title, department, salary, and manager
+};
 
 // Add a Department
-
+function addDepartment() {
     // Ask new department name
+};
 
 // Add a role
-
+function addRole() {
     // Ask new role name, salary and department
+};
 
 // Add an employee
-
+function addEmployee() {
     // Ask new employee first name, last name, role, and manager
+}
 
 // Update an employee role
-
+function updateERole() {
     // Ask to select employee to update and new role
-
+}
 
 // Bonus options: 
 // Update employee manager
