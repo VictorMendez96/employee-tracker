@@ -40,13 +40,21 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 ## Installation
 
-
+Download the program to your local drive. In your terminal go to program folder and run the command below to install all dependencies:
+```
+npm i
+```
+Once everything is installed you can start using the application
 
 
 ## Usage
 
+This application is used as an employee management system to be able to input employees into your database and organize them by role and department. To start the program, after you have installed all dependencies, run the commands below to start the program: 
+```
+npm start   or  node server.js
+```
 
- 
+ Watch my walk-through video below to see the application in action!
 
 ## Application Screenshots
 

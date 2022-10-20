@@ -4,6 +4,7 @@
   "description": "- [Description](#Description)\r - [Installation](#Installation)\r - [Usage](#Usage)\r - [Application Screenshots](#application-screenshots)\r - [Application Links](#application-links)",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
