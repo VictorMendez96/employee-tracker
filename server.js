@@ -65,37 +65,51 @@ function menu() {
 // View all departments
 function viewDepartments() {
     // Department names and ids
-    menu();
+    db.query(``, (err, res) => {
+        if(err) {
+            console.log(err)
+        }
+        console.log();
+        console.table(res);
+        menu(); 
+    })
+    
 };
 
 // View all roles
 function viewRoles() {
     // Title, role id, department role belongs to, and salary
+    menu();
 };
 
 // View all employees
 function viewEmployees() {
     // Employee id, first & last name, job title, department, salary, and manager
+    menu();
 };
 
 // Add a Department
 function addDepartment() {
     // Ask new department name
+    menu();
 };
 
 // Add a role
 function addRole() {
     // Ask new role name, salary and department
+    menu();
 };
 
 // Add an employee
 function addEmployee() {
     // Ask new employee first name, last name, role, and manager
+    menu();
 }
 
 // Update an employee role
 function updateERole() {
     // Ask to select employee to update and new role
+    menu();
 }
 
 // Bonus options: 
