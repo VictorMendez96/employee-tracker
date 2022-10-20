@@ -79,13 +79,27 @@ function viewDepartments() {
 // View all roles
 function viewRoles() {
     // Title, role id, department role belongs to, and salary
-    menu();
+    db.query(``, (err, res) => {
+        if(err) {
+            console.log(err)
+        }
+        console.log();
+        console.table(res);
+        menu(); 
+    })
 };
 
 // View all employees
 function viewEmployees() {
     // Employee id, first & last name, job title, department, salary, and manager
-    menu();
+    db.query(``, (err, res) => {
+        if(err) {
+            console.log(err)
+        }
+        console.log();
+        console.table(res);
+        menu(); 
+    })
 };
 
 // Add a Department
@@ -114,19 +128,67 @@ function updateERole() {
 
 // Bonus options: 
 // Update employee manager
+function updateEManager() {
+    db.query(``, (err, res) => {
+        if(err) {
+            console.log(err)
+        }
+        console.log();
+        console.table(res);
+        menu(); 
+    })
+}
 
 // View employees by manager
+function viewEmpByManager() {
+    db.query(``, (err, res) => {
+        if(err) {
+            console.log(err)
+        }
+        console.log();
+        console.table(res);
+        menu(); 
+    })
+}
 
 // View employees by department
+function viewEmpByDept() {
+    db.query(``, (err, res) => {
+        if(err) {
+            console.log(err)
+        }
+        console.log();
+        console.table(res);
+        menu(); 
+    })
+}
 
 // Delete department
+function delDepartment() {
+
+}
 
 // Delete role
+function delRole() {
+
+}
 
 // Delete employee
+function delEmployee() {
 
-// Total utilized budget per department
+}
 
+// View total utilized budget per department
+function viewUtilized() {
+    db.query(``, (err, res) => {
+        if(err) {
+            console.log(err)
+        }
+        console.log();
+        console.table(res);
+        menu(); 
+    })
+}
 
 // Call init function 
 init (); 
