@@ -58,14 +58,13 @@ npm start   or  node server.js
 
 ## Application Screenshots
 
-![]()
-![]()
-![]()
-![]()
+![Start Screen](./assets/program-start.png)
+![Table Examples](./assets/table-examples.png)
+![Dept Add](./assets/department-add.png)
 
 
 ## Application Links
 
 [GitHub](https://github.com/VictorMendez96/employee-tracker)
 
-[Video Walk-through]()
+[Video Walk-through](https://drive.google.com/file/d/1JVRF7K8S1xj66CAftV9emoTULGPT0vHD/view)
