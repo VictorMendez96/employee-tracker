@@ -44,19 +44,19 @@ function menu() {
         ])
         .then(function (response) {
             if(response.menuOption == 'View all departments'){
-
+                viewDepartments()
             } else if (response.menuOption == 'View all roles'){
-
+                viewRoles()
             } else if (response.menuOption == 'View all employees'){
-
+                viewEmployees()
             } else if (response.menuOption == 'Add a department'){
-
+                addDepartment()
             } else if (response.menuOption == 'Add a role'){
-
+                addRole()
             } else if (response.menuOption == 'Add an employee'){
-
+                addEmployee()
             } else if (response.menuOption == 'Update an employee role'){
-
+                updateERole()
             }
         });
 }
