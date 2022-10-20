@@ -19,7 +19,7 @@ SELECT A.first_name, A.last_name, A.id AS employee, B.last_name AS manager
 FROM employee A, employee B
 WHERE A.id <> B.manager_id
 AND A.manager_id = B.id
-GROUP BY A.manager_id;
+ORDER BY A.manager_id;
 
 SELECT role.id, role.title AS role, role.salary, department.name AS department
 FROM department 

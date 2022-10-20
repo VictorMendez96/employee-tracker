@@ -39,7 +39,7 @@ function menu() {
                 name: 'menuOption',
                 type: 'list',
                 message: 'Choose an action: ',
-                choices: ['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role']
+                choices: ['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role', 'View employees by manager']
             }
         ])
         .then(function (response) {
@@ -57,6 +57,8 @@ function menu() {
                 addEmployee()
             } else if (response.menuOption == 'Update an employee role'){
                 updateERole()
+            } else if (response.menuOption == 'View employees by manager'){
+                viewEmpByManager()
             }
         });
 }
@@ -115,18 +117,117 @@ function viewEmployees() {
 // Add a Department
 function addDepartment() {
     // Ask new department name
-    menu();
+    inquirer
+        .prompt([
+            {
+                name: 'newDept',
+                type: 'input',
+                message: 'Enter the new department name:',
+                default: 'Information Technology'
+            }
+        ])
+        .then(function (response) {
+            const sql = `INSERT INTO department (name)
+                VALUES (?);`;
+            const dept = response.newDept;
+
+            db.query(sql, dept, (err, res) => {
+                if(err) {
+                    console.log(err)
+                };
+                viewDepartments();
+            });
+            menu();
+        })
+    
 };
 
 // Add a role
 function addRole() {
     // Ask new role name, salary and department
-    menu();
+    inquirer
+        .prompt([
+            {
+                name: 'newRole',
+                type: 'input',
+                message: 'Enter name of new role:',
+                default: 'Assistant Regional Manager'
+            },
+            {
+                name: 'salary',
+                type: 'number',
+                message: 'Enter salary for this new role:',
+                default: '25000'
+            },
+            {
+                name: 'dept',
+                type: 'number',
+                message: 'What department id does this role belong to:',
+                default: '2'
+            },
+        ])
+        .then(function (response) {
+            const sql = `INSERT INTO role (title, salary, department_id)
+            VALUES (?, ?, ?)`
+            const newRole = response.newRole
+            const salary = response.salary
+            const dept = response.dept
+
+            db.query(sql, newRole, salary, dept, (err, res) => {
+                if(err) {
+                    console.log(err)
+                };
+                viewRoles();
+            });
+        })
+    
 };
 
 // Add an employee
 function addEmployee() {
     // Ask new employee first name, last name, role, and manager
+    inquirer
+        .prompt([
+            {
+                name: 'firstn',
+                type: 'input',
+                message: 'Enter first name of new employee:',
+                default: 'Michael'
+            },
+            {
+                name: 'lastn',
+                type: 'input',
+                message: 'Enter last name of new employee:',
+                default: 'Scarn'
+            },
+            {
+                name: 'role',
+                type: 'number',
+                message: 'Enter role id for new employee:',
+                default: '3'
+            },
+            {
+                name: 'managerId',
+                type: 'number',
+                message: 'Enter manager id for new employee:',
+                default: '1'
+            }
+        ])
+        .then(function (response) {
+            const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id)
+            VALUES (?, ?, ?, ?)`
+            const firstName = response.firstn
+            const lastName = response.lastn
+            const role = response.role
+            const managerId = response.managerId
+
+            db.query(sql, firstName, lastName, role, managerId, (err, res) => {
+                if(err) {
+                    console.log(err)
+                };
+                viewEmployees();
+            })
+        })
     menu();
 }
 
@@ -144,7 +245,11 @@ function updateEManager() {
 
 // View employees by manager
 function viewEmpByManager() {
-    db.query(``, (err, res) => {
+    db.query(`SELECT A.first_name, A.last_name, A.id AS employee, B.last_name AS manager
+        FROM employee A, employee B
+        WHERE A.id <> B.manager_id
+        AND A.manager_id = B.id
+        ORDER BY A.manager_id;`, (err, res) => {
         if(err) {
             console.log(err)
         }
