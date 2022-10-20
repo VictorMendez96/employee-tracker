@@ -38,9 +38,26 @@ function menu() {
                 name: 'menuOption',
                 type: 'list',
                 message: 'Choose an action: ',
-                choices: ['View all departments', '', '', '', '', '', '']
+                choices: ['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role']
             }
         ])
+        .then(function (response) {
+            if(response.menuOption == ""){
+
+            } else if (response.menuOption == ""){
+
+            } else if (response.menuOption == ""){
+
+            } else if (response.menuOption == ""){
+
+            } else if (response.menuOption == ""){
+
+            } else if (response.menuOption == ""){
+
+            } else if (response.menuOption == ""){
+
+            }
+        });
 }
 
 // Functions for Menu Options
