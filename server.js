@@ -79,7 +79,11 @@ function viewDepartments() {
 // View all roles
 function viewRoles() {
     // Title, role id, department role belongs to, and salary
-    db.query(`SELECT * FROM roles;`, (err, res) => {
+    db.query(`SELECT role.id, role.title AS role, role.salary, department.name AS department
+        FROM department 
+        LEFT JOIN role
+        ON department_id = department.id
+        ORDER BY role.id;`, (err, res) => {
         if(err) {
             console.log(err)
         }
@@ -92,11 +96,17 @@ function viewRoles() {
 // View all employees
 function viewEmployees() {
     // Employee id, first & last name, job title, department, salary, and manager
-    db.query(``, (err, res) => {
+    db.query(`SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name AS department, employee.manager_id AS manager
+        FROM employee 
+        JOIN role 
+        ON role.id = employee.role_id 
+        JOIN department 
+        ON role.department_id = department.id 
+        ORDER BY employee.id;`, (err, res) => {
         if(err) {
             console.log(err)
         }
-        console.log();
+        console.log('Here are all employees:');
         console.table(res);
         menu(); 
     })
@@ -129,14 +139,7 @@ function updateERole() {
 // Bonus options: 
 // Update employee manager
 function updateEManager() {
-    db.query(``, (err, res) => {
-        if(err) {
-            console.log(err)
-        }
-        console.log();
-        console.table(res);
-        menu(); 
-    })
+    
 }
 
 // View employees by manager
@@ -145,7 +148,7 @@ function viewEmpByManager() {
         if(err) {
             console.log(err)
         }
-        console.log();
+        console.log('Here are all employees sorted by manager:');
         console.table(res);
         menu(); 
     })
