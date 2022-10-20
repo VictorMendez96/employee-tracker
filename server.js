@@ -2,7 +2,7 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cTable = require('console.table');
-const { default: Choices } = require('inquirer/lib/objects/choices');
+const inquirer = require('inquirer')
 
 // Establish PORT to use for connection
 const PORT = process.env.PORT || 3001;
@@ -65,11 +65,11 @@ function menu() {
 // View all departments
 function viewDepartments() {
     // Department names and ids
-    db.query(``, (err, res) => {
+    db.query(`SELECT * FROM department;`, (err, res) => {
         if(err) {
             console.log(err)
         }
-        console.log();
+        console.log('Here are all departments:');
         console.table(res);
         menu(); 
     })
@@ -79,11 +79,11 @@ function viewDepartments() {
 // View all roles
 function viewRoles() {
     // Title, role id, department role belongs to, and salary
-    db.query(``, (err, res) => {
+    db.query(`SELECT * FROM roles;`, (err, res) => {
         if(err) {
             console.log(err)
         }
-        console.log();
+        console.log('Here are all roles:');
         console.table(res);
         menu(); 
     })
