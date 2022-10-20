@@ -24,3 +24,47 @@ const db = mysql.createConnection(
     console.log('Connected to employee_db database!')
 );
 
+// Functions for Menu Options
+// View all departments
+
+    // Department names and ids
+
+// View all roles
+
+    // Title, role id, department role belongs to, and salary
+
+// View all employees
+
+    // Employee id, first & last name, job title, department, salary, and manager
+
+// Add a Department
+
+    // Ask new department name
+
+// Add a role
+
+    // Ask new role name, salary and department
+
+// Add an employee
+
+    // Ask new employee first name, last name, role, and manager
+
+// Update an employee role
+
+    // Ask to select employee to update and new role
+
+
+// Bonus options: 
+// Update employee manager
+
+// View employees by manager
+
+// View employees by department
+
+// Delete department
+
+// Delete role
+
+// Delete employee
+
+// Total utilized budget per department
